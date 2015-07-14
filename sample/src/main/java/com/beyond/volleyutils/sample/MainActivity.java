@@ -1,10 +1,17 @@
 package com.beyond.volleyutils.sample;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import com.android.volley.VolleyError;
+import com.beyond.volleyutils.BaseVolley;
+import com.beyond.volleyutils.IResponseListener;
+import com.beyond.volleyutils.RequestImage;
+import com.beyond.volleyutils.RequestInfo;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +29,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestData() {
+        RequestInfo requestInfo = new RequestInfo.Builder().requestUrl("http://i.imgur.com/7spzG.png").build();
+        RequestImage requestImage = new RequestImage(this, requestInfo);
+        requestImage.get(TAG, new IResponseListener<Bitmap>() {
+            @Override
+            public void onSuccess(Bitmap response) {
+                mImageView.setImageBitmap(response);
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                Log.d(TAG, error.getMessage());
+            }
+        });
     }
 
 
@@ -45,5 +65,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BaseVolley.getInstance(this).stop(TAG);
     }
 }

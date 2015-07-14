@@ -46,7 +46,7 @@ public class BaseVolley {
      *
      * @param tag request tag
      */
-    public void stop(String tag) {
+    public void stop(Object tag) {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
