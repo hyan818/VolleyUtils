@@ -6,7 +6,7 @@ Make volley easy to use. Support JsonObjectRequest, GsonObjectRequest, ImageObje
 
 ##Import aar package
 
-Download [Volleyutils-library.aar](download/volleyutils-library.aar)
+Download [Volleyutils-library.aar](https://github.com/hyan818/VolleyUtils/blob/master/download/volleyutils-library.aar?raw=true)
 
 ##Add this to gradle
 
