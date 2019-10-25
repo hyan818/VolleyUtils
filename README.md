@@ -2,13 +2,13 @@
 
 Make volley easy to use. Support JsonObjectRequest, GsonObjectRequest, ImageObjectRequest StringObjectRequest.
 
-#How to use
+# How to use
 
-##1. Import aar package
+## 1. Import aar package
 
 Download [Volleyutils-library.aar](https://github.com/hyan818/VolleyUtils/blob/master/download/volleyutils-library.aar?raw=true) and import into your project.
 
-##2. Add this to gradle
+## 2. Add this to gradle
 
 ```gradle
 repositories {
@@ -24,7 +24,7 @@ dependencies {
 }
 ```
 
-##Code
+## Code
 
 ```java
 // Create request parameters map.
@@ -55,7 +55,7 @@ requestString.post(TAG, new IResponseListener<String>() {
 });
 ```
 
-##Other request
+## Other request
 
 ```java
 RequestJsonObject
@@ -63,7 +63,7 @@ RequestGson
 RequestImage
 ```
 
-##Stop request
+## Stop request
 
 ```java
 BaseVolley.getInstance(this).stop(TAG);
